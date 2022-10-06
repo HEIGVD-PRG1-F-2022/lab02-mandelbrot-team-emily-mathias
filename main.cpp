@@ -1,13 +1,12 @@
 #include <iostream>
-#include <vector>
+#include "vector"
+#include "display.h"
+#include "mandel.h"
 
 using namespace std;
 
-vector<vector<int>> test;
-
-
-
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    std::vector<std::vector<int>> tableau = createArray(2, 2, 3, 3);
+    displayArray(tableau);
     return 0;
 }
