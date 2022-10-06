@@ -6,18 +6,31 @@
 #include "cmath"
 class mandelbrot
 {
-    std::vector<std::vector<int>> createArray(int x1, int y1, int x2, int y2, double d)
+    std::vector<std::vector<int>> createArray(int x1, int y1, int x2, int y2, int n)
     {
-        std::vector<std::vector<int>> array;
-        for(int i = 0; i < ((x2 - x1)/d); i++)
+        std::vector<std::vector<int>> array(n,n);
+        for(int i = 0; i < n; i++)
         {
-            for(int j = 0; j < ((y2 - y1)/d); j++)
+            for(int j = 0; j < n; j++)
             {
-                auto it = array.begin();
-                array.insert(it, 0);
+                array[i][j] = 0;
             }
         }
+        return array;
     }
+    std::vector<std::vector<int>> createArray(int x, int y, int nX, int nY)
+    {
+        std::vector<std::vector<int>> array(nX,nY);
+        for(int i = 0; i < nX; i++)
+        {
+            for(int j = 0; j < nY; j++)
+            {
+                array[i][j] = 0;
+            }
+        }
+        return array;
+    }
+
     int getMandelFromCoord(double x0, double y0)
     {
 
