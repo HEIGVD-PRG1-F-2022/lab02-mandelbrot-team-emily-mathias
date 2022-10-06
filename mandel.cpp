@@ -6,20 +6,33 @@
 #include "cmath"
 class mandelbrot
 {
-    void getMandelFromCoord(double posX, double posY, std::vector<double> scaleX, std::vector<double> scaleY, std::vector<int> canvasSize)
+    std::vector<std::vector<int>> createArray(int x1, int y1, int x2, int y2, double d)
+    {
+        std::vector<std::vector<int>> array;
+        for(int i = 0; i < ((x2 - x1)/d); i++)
+        {
+            for(int j = 0; j < ((y2 - y1)/d); j++)
+            {
+                auto it = array.begin();
+                array.insert(it, 0);
+            }
+        }
+    }
+    int getMandelFromCoord(double x0, double y0)
     {
 
         //double x0 = (std::abs(scaleX[0]-scaleX[1])/canvasSize[0]) * posX;
         //double y0 = (std::abs(scaleY[0]-scaleY[1])/canvasSize[1]) * posY;
-        double x0 = posX, y0 = posY;
         double x = 0, y = 0;
-        int maxIteration = 1000;
-        for(int i = 0; (x*x) + (y*y) >= (2*2) && i < maxIteration; i++)
+        int iteration = 0, maxIteration = 1000;
+        for(; (x*x) + (y*y) >= (2*2) && iteration < maxIteration; iteration++)
         {
             double xTemp = x*x - y*y + x0;
             y = 2*x*y + y0;
             x = xTemp;
         }
+
+        return iteration;
 
         /*
         for each pixel (Px, Py) on the screen do
