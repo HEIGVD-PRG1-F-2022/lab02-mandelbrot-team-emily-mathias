@@ -5,8 +5,7 @@
 #ifndef LABO02___MANDELBROOT_SET_MANDEL_H
 #define LABO02___MANDELBROOT_SET_MANDEL_H
 #include "vector"
-std::vector<std::vector<int>> createArray(int x1, int y1, int x2, int y2, double n);
-std::vector<std::vector<int>> createArray(int x, int y, int nX, int nY);
-int getMandelFromCoord(double, double);
-
+std::vector<std::vector<int>> createArray(int nX, int nY);
+int getMandelFromCoord(double x0, double y0);
+std::vector<std::vector<int>> calcRect(std::vector<std::vector<int>> array, double X1, double X2, double Y1, double Y2, int nX, int nY);
 #endif //LABO02___MANDELBROOT_SET_MANDEL_H
