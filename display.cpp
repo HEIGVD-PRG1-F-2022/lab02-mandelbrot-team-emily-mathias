@@ -11,9 +11,9 @@ using namespace std;
 void displayArray(std::vector<std::vector<int>> array)
 {
     for (int i = 0; i < array.size(); i++) {
-        for (int j = 0; j < array[i].size(); j++){
+        for (int j = 0; j < array[0].size(); j++){
             int character;
-            character = (array[i][j]/100) + 1;
+            character = (array[j][i]/100) + 1;
             switch (character) {
                 case 1 : cout << ' '; break;
                 case 2 : cout << '.'; break;
@@ -28,7 +28,6 @@ void displayArray(std::vector<std::vector<int>> array)
                 case 11 : cout << '@'; break;
                 default: cout << "X"; break;
             }
-
         }
         cout << endl;
     }
