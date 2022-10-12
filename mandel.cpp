@@ -37,9 +37,11 @@ int getMandelFromCoord(double x0, double y0)
     return iteration;
 }
 
-std::vector<std::vector<int>> calcRect(std::vector<std::vector<int>> array, double X, double Y, int nX, double zoom)
+std::vector<std::vector<int>> calcRect(std::vector<std::vector<int>> array, double X, double Y, int nX, int nY, double zoom)
 {
-    return calcRect(array, X-(zoom), X+(zoom), Y-(zoom), Y+(zoom), nX, nX);
+    double xFactor = std::max(nX,nY)/nX;
+    double yFactor = std::max(nX,nY)/nY;
+    return calcRect(array, X-(zoom*xFactor), X+(zoom*xFactor), Y-(zoom*yFactor), Y+(zoom*yFactor), nX, nY);
 }
 
 std::vector<std::vector<int>> calcRect(std::vector<std::vector<int>> array, double X1, double X2, double Y1, double Y2, int nX, int nY)

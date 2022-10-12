@@ -11,14 +11,14 @@ using namespace std;
 
 void displayArray(std::vector<std::vector<int>> array)
 {
-    static char output[200][200];
+    static char output[250][350];
     for (int i = 0; i < array.size(); i++) {
         for (int j = 0; j < array[0].size(); j++){
             int character;
-            char currentChar = output[j][i];
+            char currentChar = output[i][j];
             char nextChar = 'X';
             int color = 0;
-            character = (array[j][i]/(MAX_ITERATION/10)) + 1;
+            character = (array[i][j]/(MAX_ITERATION/10)) + 1;
             switch (character) {
                 case 1 : nextChar = ' '; color = 0; break;
                 case 2 : nextChar = '.'; color = 17; break;
@@ -35,8 +35,8 @@ void displayArray(std::vector<std::vector<int>> array)
             }
 
             if(currentChar!=nextChar){
-                output[j][i] = nextChar;
-                setCursorPosition(j,i);
+                output[i][j] = nextChar;
+                setCursorPosition(i,j);
                 SetConsoleTextAttribute(hOut, color);
                 cout << nextChar;
             }
