@@ -15,7 +15,7 @@ int main() {
     double X = -0.745200005;
     double Y = 0.112705055;
     double zoom = 2;
-    int nX = 200; //between 1 and 250
+    int nX = 100; //between 1 and 250
     int nY = 100; //between 1 and 350
     //int nX = (int)(max(abs(X1-X2),abs(Y1-Y2))/abs(X1-X2))*precision;
     //int nY = (int)(max(abs(X1-X2),abs(Y1-Y2))/abs(Y1-Y2))*precision;
@@ -23,7 +23,7 @@ int main() {
 
     while(zoom<100)
     {
-        tableau = calcRect(tableau, X, Y, nX, nY, zoom*=0.9);
+        tableau = calcRect(tableau, X, Y, nX, nY, zoom*=0.98);
         displayArray(tableau);
     }
     return 0;

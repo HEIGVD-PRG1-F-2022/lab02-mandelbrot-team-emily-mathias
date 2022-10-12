@@ -14,6 +14,7 @@ using namespace std;
 void displayArray(std::vector<std::vector<int>> array)
 {
     static char output[250][350];
+    string output2 = "";
     for (int i = 0; i < array.size(); i++) {
         for (int j = 0; j < array[0].size(); j++){
             int character;
@@ -35,16 +36,20 @@ void displayArray(std::vector<std::vector<int>> array)
                 case 11 :nextChar = '@'; color = 170; break;
                 default: nextChar = 'X'; color = 20; break;
             }
-
+            output2 += nextChar;
+            /*
             if(currentChar!=nextChar){
                 output[i][j] = nextChar;
                 setCursorPosition(i,j);
                 SetConsoleTextAttribute(hOut, color);
                 cout << nextChar;
             }
-            SetConsoleTextAttribute(hOut, 0);
+             */
+            //SetConsoleTextAttribute(hOut, 0);
         }
+        output2 += "\n";
     }
-    SetConsoleTextAttribute(hOut, 0);
-    cout.flush();
+    setCursorPosition(0,0);
+    cout << output2 << endl;
+    //cout.flush();
 }
