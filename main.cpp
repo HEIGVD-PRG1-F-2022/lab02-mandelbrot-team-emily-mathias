@@ -1,3 +1,8 @@
+/*
+ * It has been created by Mathias Renoult & Emily Baquerizo during a school project.
+ * This program compute and plot the Mandelbrot set in console.
+ */
+
 #include <iostream>
 #include "vector"
 #include "display.h"

@@ -1,7 +1,8 @@
-//
-// Created by trixi on 12/10/2022.
-// Source : https://stackoverflow.com/questions/34842526/update-console-without-flickering-c
-//
+/*
+* Created by Mathias Renoult & Emily Baquerizo on 12/10/2022.
+* Source : https://stackoverflow.com/questions/34842526/update-console-without-flickering-c
+ * Simplifies the usage of the Windows console
+*/
 #define NOMINMAX
 #define WIN32_LEAN_AND_MEAN
 #include "console.h"

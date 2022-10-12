@@ -1,6 +1,7 @@
-//
-// Created by trixi on 06/10/2022.
-//
+/*
+* Created by Mathias Renoult & Emily Baquerizo on 06/10/2022.
+* contain the function who display something on the screen
+*/
 #include <iostream>
 #include "vector"
 #include "console.h"
@@ -9,6 +10,7 @@
 #include "console.h"
 using namespace std;
 
+//take the value of the array and transforms them into ASCII characters and then display those in the console.
 void displayArray(std::vector<std::vector<int>> array)
 {
     static char output[250][350];

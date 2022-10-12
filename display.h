@@ -1,6 +1,6 @@
-//
-// Created by trixi on 06/10/2022.
-//
+/*
+ * Created by Mathias Renoult & Emily Baquerizo on 06/10/2022.
+ */
 
 #ifndef LABO02___MANDELBROOT_SET_DISPLAY_H
 #define LABO02___MANDELBROOT_SET_DISPLAY_H

@@ -1,12 +1,14 @@
-//
-// Created by trixi on 05/10/2022.
-//
+/*
+ * Created by Mathias Renoult & Emily Baquerizo on 05/10/2022.
+ * This source file contains various function used in the creation of a Mandelbrot set
+ */
 #include <iostream>
 #include "mandel.h"
 #include "vector"
 
 //const int MAX_ITERATION = 1000
 
+//this function creates an array who will contain the canvas for the Mandelbrot set
 std::vector<std::vector<int>> createArray(int nX, int nY)
 {
     std::vector<std::vector<int>> array;
@@ -23,6 +25,7 @@ std::vector<std::vector<int>> createArray(int nX, int nY)
     return array;
 }
 
+//computes the number of iteration from a specific point of the Mandelbrot set
 int getMandelFromCoord(double x0, double y0)
 {
     double x = 0, y = 0;
@@ -37,13 +40,7 @@ int getMandelFromCoord(double x0, double y0)
     return iteration;
 }
 
-std::vector<std::vector<int>> calcRect(std::vector<std::vector<int>> array, double X, double Y, int nX, int nY, double zoom)
-{
-    double xFactor = std::max(nX,nY)/nX;
-    double yFactor = std::max(nX,nY)/nY;
-    return calcRect(array, X-(zoom*xFactor), X+(zoom*xFactor), Y-(zoom*yFactor), Y+(zoom*yFactor), nX, nY);
-}
-
+//this function iterates on every cell of the array and set its value from the getMandelFromCoord function
 std::vector<std::vector<int>> calcRect(std::vector<std::vector<int>> array, double X1, double X2, double Y1, double Y2, int nX, int nY)
 {
     for (int i = 0; i < array.size(); ++i) {
@@ -54,4 +51,12 @@ std::vector<std::vector<int>> calcRect(std::vector<std::vector<int>> array, doub
         }
     }
     return array;
+}
+
+//overload of calcRect function permitting to use a center point and zoom instead of the two corners of the rectangle
+std::vector<std::vector<int>> calcRect(std::vector<std::vector<int>> array, double X, double Y, int nX, int nY, double zoom)
+{
+    double xFactor = std::max(nX,nY)/nX;
+    double yFactor = std::max(nX,nY)/nY;
+    return calcRect(array, X-(zoom*xFactor), X+(zoom*xFactor), Y-(zoom*yFactor), Y+(zoom*yFactor), nX, nY);
 }
