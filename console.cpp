@@ -4,14 +4,12 @@
 //
 #define NOMINMAX
 #define WIN32_LEAN_AND_MEAN
-#include <Windows.h>
-#include <iostream>
+#include "console.h"
 
 void cls()
 {
     // Get the Win32 handle representing standard output.
     // This generally only has to be done once, so we make it static.
-    static const HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
 
     CONSOLE_SCREEN_BUFFER_INFO csbi;
     COORD topLeft = { 0, 0 };

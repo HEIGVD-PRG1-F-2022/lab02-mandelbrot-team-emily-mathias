@@ -19,7 +19,7 @@ int main() {
 
     while(zoom<100)
     {
-        tableau = calcRect(tableau, X, Y, nX, zoom-=(zoom/30));
+        tableau = calcRect(tableau, X, Y, nX, zoom-=(zoom/10));
         displayArray(tableau);
     }
     return 0;
