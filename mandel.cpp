@@ -5,6 +5,8 @@
 #include "mandel.h"
 #include "vector"
 
+//const int MAX_ITERATION = 1000
+
 std::vector<std::vector<int>> createArray(int nX, int nY)
 {
     std::vector<std::vector<int>> array;
@@ -24,7 +26,7 @@ std::vector<std::vector<int>> createArray(int nX, int nY)
 int getMandelFromCoord(double x0, double y0)
 {
     double x = 0, y = 0;
-    int iteration = 0, maxIteration = 1000;
+    int iteration = 0, maxIteration = MAX_ITERATION;
     for(; (x*x) + (y*y) <= (2*2) && iteration < maxIteration; iteration++)
     {
         double xTemp = x*x - y*y + x0;
@@ -33,6 +35,11 @@ int getMandelFromCoord(double x0, double y0)
     }
 
     return iteration;
+}
+
+std::vector<std::vector<int>> calcRect(std::vector<std::vector<int>> array, double X, double Y, int nX, double zoom)
+{
+    return calcRect(array, X-(zoom), X+(zoom), Y-(zoom), Y+(zoom), nX, nX);
 }
 
 std::vector<std::vector<int>> calcRect(std::vector<std::vector<int>> array, double X1, double X2, double Y1, double Y2, int nX, int nY)
@@ -44,6 +51,5 @@ std::vector<std::vector<int>> calcRect(std::vector<std::vector<int>> array, doub
             array[i][j] = getMandelFromCoord((dx * i) + X1, (dy * j) + Y1);
         }
     }
-    std::cout << "finished" << std::endl;
     return array;
 }
