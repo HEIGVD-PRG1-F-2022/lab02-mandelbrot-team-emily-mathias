@@ -8,6 +8,7 @@
 #include "string"
 #include "mandel.h"
 #include "console.h"
+
 using namespace std;
 
 //take the value of the array and transforms them into ASCII characters and then display those in the console.
@@ -22,6 +23,7 @@ void displayArray(std::vector<std::vector<int>> array)
             char nextChar = 'X';
             int color = 0;
             character = (array[i][j]/(MAX_ITERATION/10)) + 1;
+            /*
             switch (character) {
                 case 1 : nextChar = ' '; color = 0; break;
                 case 2 : nextChar = '.'; color = 17; break;
@@ -36,7 +38,9 @@ void displayArray(std::vector<std::vector<int>> array)
                 case 11 :nextChar = '@'; color = 170; break;
                 default: nextChar = 'X'; color = 20; break;
             }
-            output2 += nextChar;
+             */
+            output2 += "\u001b[48;5;" + to_string(character%255) + "m " + " " + "\u001b[0m";
+            //output2 += nextChar;
             /*
             if(currentChar!=nextChar){
                 output[i][j] = nextChar;
