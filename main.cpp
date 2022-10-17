@@ -17,18 +17,18 @@ int main() {
     system(("chcp "s + std::to_string(CP_UTF8)).c_str());
 #endif
     //double X1 = -1, X2 = 1, Y1 = -1, Y2 = 1;
-    double X = -0.745200005;
-    double Y = 0.112705055;
-    double zoom = 2;
-    int nX = 100; //between 1 and 250
-    int nY = 100; //between 1 and 350
+    double X = -0.59990625;
+    double Y = -0.4290703125;
+    double zoom = 0.5;
+    int nX = 124; //between 1 and 250
+    int nY = 124; //between 1 and 350
     //int nX = (int)(max(abs(X1-X2),abs(Y1-Y2))/abs(X1-X2))*precision;
     //int nY = (int)(max(abs(X1-X2),abs(Y1-Y2))/abs(Y1-Y2))*precision;
     std::vector<std::vector<int>> tableau = createArray(nX, nY);
 
     while(zoom<100)
     {
-        tableau = calcRect(tableau, X, Y, nX, nY, zoom*=0.985);
+        tableau = calcRect(tableau, X, Y, nX, nY, zoom*=0.9);
         displayArray(tableau);
     }
     return 0;
