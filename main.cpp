@@ -28,8 +28,24 @@ int main() {
 
     while(zoom<100)
     {
-        tableau = calcRect(tableau, X, Y, nX, nY, zoom*=0.9);
+        char choice;
+        cout << "Please enter a command (q,w,e,a,s,d,)..." << endl;
+        cin >> choice;
+        switch(choice)
+        {
+            case 'q': zoom *= 0.75; break;
+            case 'e': zoom *= 1.25; break;
+            case 'w': X *= 1.1; break;
+            case 'a': Y *= 1.1; break;
+            case 's': X *= 0.9; break;
+            case 'd': Y *= 0.9; break;
+            default: cout << "Accepted inputs are : q,w,e,a,s,d." << endl;
+        }
+        tableau = calcRect(tableau, X, Y, nX, nY, zoom);
         displayArray(tableau);
+
     }
+
+
     return 0;
 }
