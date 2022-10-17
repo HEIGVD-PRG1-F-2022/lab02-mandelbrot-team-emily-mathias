@@ -1,6 +1,7 @@
 /*
  * It has been created by Mathias Renoult & Emily Baquerizo during a school project.
  * This program compute and plot the Mandelbrot set in console.
+ * It also allows the user to navigate the animation
  */
 
 #include <iostream>
@@ -25,6 +26,7 @@ int main() {
     //int nX = (int)(max(abs(X1-X2),abs(Y1-Y2))/abs(X1-X2))*precision;
     //int nY = (int)(max(abs(X1-X2),abs(Y1-Y2))/abs(Y1-Y2))*precision;
     std::vector<std::vector<int>> tableau = createArray(nX, nY);
+
 
     while(zoom<100)
     {
